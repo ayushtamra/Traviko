@@ -1,0 +1,1 @@
+web: gunicorn traviko.wsgi --log-file -
