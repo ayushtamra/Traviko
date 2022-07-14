@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- favicon -->
+	<link rel="icon" type="image/png" href="assets/images/favicon.jpg" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" media="all" />
+	<!-- Fonts Awesome CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/fontawesome/css/all.min.css" />
+	<!-- jquery-ui css -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/jquery-ui/jquery-ui.min.css" />
+	<!-- modal video css -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/modal-video/modal-video.min.css" />
+	<!-- light box css -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/lightbox/dist/css/lightbox.min.css" />
+	<!-- slick slider css -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/slick/slick.css" />
+	<link type="text/css" href="assets/vendors/slick/slick-theme.css" />
+	<!-- google fonts -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+		rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'navprofile.css' %}"> -->
+	<title>Traviko</title>
+</head>
+
+<body class="home">
+	<div id="siteLoader" class="site-loader">
+		<div class="preloader-content">
+			<img src="assets/images/loader1.gif" alt="" />
+		</div>
+	</div>
+		<header id="masthead" class="site-header header-primary">
+			<!-- Bottom header -->
+			<div class="bottom-header">
+				<div class="container d-flex justify-content-between align-items-center">
+					<div class="site-identity">
+						<h1 class="site-title">
+							<!--Website Logo -->
+							<a href="/">
+								<img src="assets/images/Traviko_logo.svg" alt="logo" />
+							</a>
+						</h1>
+					</div>
+					<div class="main-navigation d-none d-lg-block">
+						<nav id="navigation" class="navigation">
+							<ul>
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+
+								<!-- Hotels option -->
+								<li class="menu-item-has-children">
+									<a href="hotels.html">Book</a>
+
+									<ul>
+										<li>
+											<a href="/hotels">Hotel</a>
+										</li>
+
+										<li>
+											<a href="/Restaurants">Restaurants</a>
+										</li>
+									</ul>
+								</li>
+
+								<li>
+									<a href="#">Travel Forum</a>
+								</li>
+
+								<li>
+									<a href="/blog">Blog</a>
+								</li>
+
+
+
+								<li class="menu-item-has-children">
+									<a href="">Account</a>
+
+									{% if user.is_authenticated %}
+
+									<ul>
+										<li>
+											<a href="users/dashboard">Dashboard</a>
+										</li>
+
+										<li>
+											<a href="users/dashboard">My Travels</a>
+										</li>
+
+										<li>
+											<a href="users/dashboard">Settings</a>
+										</li>
+									</ul>
+
+									{% else %}
+
+
+									<ul>
+										<li>
+											<a href="users/accounts/login">Login</a>
+										</li>
+
+										<li>
+											<a href="users/accounts/signup">Signup</a>
+										</li>
+									</ul>
+
+									{% endif %}
+
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!-- <div class="header-btn">
+							<a href="#" class="button-primary">BOOK NOW</a>
+						</div> -->
+
+					<!-- <div class="header-btn" class="container">
+							<div class="half">
+							  <label for="profile2" class="profile-dropdown">
+								<input type="checkbox" id="profile2" />
+								<img
+								  src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png"
+								/>
+								<span>Ayush</span>
+								<label for="profile2"><i class="mdi mdi-menu"></i></label>
+								<ul>
+								  <li>
+									<a href="#"><i class="mdi mdi-email-outline"></i>Messages</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-account"></i>Account</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-settings"></i>Settings</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-logout"></i>Logout</a>
+								  </li>
+								</ul>
+							  </label>
+							</div>
+						</div> -->
+				</div>
+			</div>
+
+			<div class="mobile-menu-container"></div>
+		</header>
+        </body>
+        </html>
+        

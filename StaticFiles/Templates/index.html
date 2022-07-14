@@ -1,0 +1,1041 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- favicon -->
+	<link rel="icon" type="image/png" href="static/images/favicon.jpg" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="static/vendors/bootstrap/css/bootstrap.min.css" media="all" />
+	<!-- Fonts Awesome CSS -->
+	<link rel="stylesheet" type="text/css" href="static/vendors/fontawesome/css/all.min.css" />
+	<!-- jquery-ui css -->
+	<link rel="stylesheet" type="text/css" href="static/vendors/jquery-ui/jquery-ui.min.css" />
+	<!-- modal video css -->
+	<link rel="stylesheet" type="text/css" href="static/vendors/modal-video/modal-video.min.css" />
+	<!-- light box css -->
+	<link rel="stylesheet" type="text/css" href="static/vendors/lightbox/dist/css/lightbox.min.css" />
+	<!-- slick slider css -->
+	<link rel="stylesheet" type="text/css" href="static/vendors/slick/slick.css" />
+	<link type="text/css" href="static/vendors/slick/slick-theme.css" />
+	<!-- google fonts -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+		rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="static/style.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'navprofile.css' %}"> -->
+	<title>Traviko</title>
+</head>
+
+<body class="home">
+	<div id="siteLoader" class="site-loader">
+		<div class="preloader-content">
+			<img src="static/images/loader1.gif" alt="" />
+		</div>
+	</div>
+	<div id="page" class="full-page">
+		<header id="masthead" class="site-header header-primary">
+			<!-- Bottom header -->
+			<div class="bottom-header">
+				<div class="container d-flex justify-content-between align-items-center">
+					<div class="site-identity">
+						<h1 class="site-title">
+							<!--Website Logo -->
+							<a href="/">
+								<img src="static/images/Traviko_logo.svg" alt="logo" />
+							</a>
+						</h1>
+					</div>
+					<div class="main-navigation d-none d-lg-block">
+						<nav id="navigation" class="navigation">
+							<ul>
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+
+								<!-- Hotels option -->
+								<li class="menu-item-has-children">
+									<a href="hotels.html">Book</a>
+
+									<ul>
+										<li>
+											<a href="/hotels">Hotel</a>
+										</li>
+
+										<li>
+											<a href="/Restaurants">Restaurants</a>
+										</li>
+									</ul>
+								</li>
+
+								<!-- <li>
+									<a href="#">Travel Forum</a>
+								</li> -->
+
+								<li>
+									<a href="/UserForm">Get prediction</a>
+								</li>
+
+								<li>
+									<a href="/blog">Blog</a>
+								</li>
+
+
+
+								<li class="menu-item-has-children">
+									<a href="">Account</a>
+
+									{% if user.is_authenticated %}
+
+									<ul>
+										<li>
+											<a href="users/dashboard">Dashboard</a>
+										</li>
+
+										<li>
+											<a href="users/dashboard">My Travels</a>
+										</li>
+
+										<li>
+											<a href="users/dashboard">Settings</a>
+										</li>
+									</ul>
+
+									{% else %}
+
+
+									<ul>
+										<li>
+											<a href="/accounts/login">Login</a>
+										</li>
+
+										<li>
+											<a href="/accounts/register">Signup</a>
+										</li>
+									</ul>
+
+									{% endif %}
+
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!-- <div class="header-btn">
+							<a href="#" class="button-primary">BOOK NOW</a>
+						</div> -->
+
+					<!-- <div class="header-btn" class="container">
+							<div class="half">
+							  <label for="profile2" class="profile-dropdown">
+								<input type="checkbox" id="profile2" />
+								<img
+								  src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png"
+								/>
+								<span>Ayush</span>
+								<label for="profile2"><i class="mdi mdi-menu"></i></label>
+								<ul>
+								  <li>
+									<a href="#"><i class="mdi mdi-email-outline"></i>Messages</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-account"></i>Account</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-settings"></i>Settings</a>
+								  </li>
+								  <li>
+									<a href="#"><i class="mdi mdi-logout"></i>Logout</a>
+								  </li>
+								</ul>
+							  </label>
+							</div>
+						</div> -->
+				</div>
+			</div>
+
+			<div class="mobile-menu-container"></div>
+		</header>
+		<main id="content" class="site-main">
+			<!-- Home slider html start -->
+			<!-- <section class="home-slider-section">
+					<div class="home-slider"> -->
+
+			<section>
+				<div>
+					<div class="home-banner-items">
+						<div class="banner-inner-wrap" style="background-image: url(static/images/banner_homepage.jpg)">
+						</div>
+						<div class="banner-content-wrap">
+							<div class="container">
+								<div class="banner-content text-center">
+									<h2 class="banner-title">TRAVEL WITH COMMUNITY</h2>
+									<p>
+										Our travel community provides the most detailed and
+										precise views about the location you are planning to visit
+										next, we are here to provide you the cheapest and
+										affordable packages you want
+									</p>
+									<a href="#" class="button-primary">CONTINUE READING</a>
+								</div>
+							</div>
+						</div>
+						<div class="overlay"></div>
+					</div>
+					<!-- <div class="home-banner-items">
+							<div class="banner-inner-wrap" style="background-image: url(static/images/banner_homepage2_big.jpg);"></div>
+							<div class="banner-content-wrap">
+								<div class="container">
+									<div class="banner-content text-center">
+										<h2 class="banner-title">EXPERIENCE THE WORLD WITH US</h2>
+										<p></p>
+										<a href="#" class="button-primary">CONTINUE READING</a>
+									</div>
+								</div>
+							</div>
+							<div class="overlay"></div>
+						</div> -->
+				</div>
+			</section>
+			<!-- slider html start -->
+			<!-- Home search field html start -->
+			<div class="trip-search-section shape-search-section">
+				<div class="slider-shape"></div>
+				<div class="container">
+					<div class="trip-search-inner white-bg d-flex">
+						<div class="input-group">
+							<label> Search Destination* </label>
+							<input type="text" name="s" placeholder="Enter Destination" />
+						</div>
+						<div class="input-group">
+							<label> Pax Number* </label>
+							<input type="text" name="s" placeholder="No.of People" />
+						</div>
+						<div class="input-group width-col-3">
+							<label> Checkin Date* </label>
+							<i class="far fa-calendar"></i>
+							<input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY"
+								autocomplete="off" readonly="readonly" />
+						</div>
+						<div class="input-group width-col-3">
+							<label> Checkout Date* </label>
+							<i class="far fa-calendar"></i>
+							<input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY"
+								autocomplete="off" readonly="readonly" />
+						</div>
+						<div class="input-group width-col-3">
+							<label class="screen-reader-text"> Search </label>
+							<input type="submit" name="travel-search" value="INQUIRE NOW" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- search search field html end -->
+			<section class="destination-section">
+				<div class="container">
+					<div class="section-heading">
+						<div class="row align-items-end">
+							<div class="col-lg-7">
+								<h5 class="dash-style">POPULAR DESTINATION</h5>
+								<h2>TOP NOTCH DESTINATION</h2>
+							</div>
+							<div class="col-lg-5">
+								<div class="section-disc">
+									Here is the list of suggestions of places related to your
+									recent interactions and search.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="destination-inner destination-three-column">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="desti-item overlay-desti-item">
+											<figure class="desti-image">
+												<img src="static/images/disneyland.jpg" alt="" />
+											</figure>
+											<div class="meta-cat bg-meta-cat">
+												<a href="#">THAILAND</a>
+											</div>
+											<div class="desti-content">
+												<h3>
+													<a href="#">Disney Land</a>
+												</h3>
+												<div class="rating-start" title="Rated 5 out of 4">
+													<span style="width: 53%"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="desti-item overlay-desti-item">
+											<figure class="desti-image">
+												<img src="static/images/pyramids.jpg" alt="" />
+											</figure>
+											<div class="meta-cat bg-meta-cat">
+												<a href="#">EGYPT</a>
+											</div>
+											<div class="desti-content">
+												<h3>
+													<a href="#">Pyramids</a>
+												</h3>
+												<div class="rating-start" title="Rated 5 out of 5">
+													<span style="width: 100%"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<div class="row">
+									<div class="col-md-6 col-xl-12">
+										<div class="desti-item overlay-desti-item">
+											<figure class="desti-image">
+												<img src="static/images/maldives.jpg" alt="" />
+											</figure>
+											<div class="meta-cat bg-meta-cat">
+												<a href="#">MALDIVES</a>
+											</div>
+											<div class="desti-content">
+												<h3>
+													<a href="#">MALDIVES</a>
+												</h3>
+												<div class="rating-start" title="Rated 5 out of 5">
+													<span style="width: 100%"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xl-12">
+										<div class="desti-item overlay-desti-item">
+											<figure class="desti-image">
+												<img src="static/images/singapore.jpg" alt="" />
+											</figure>
+											<div class="meta-cat bg-meta-cat">
+												<a href="#">SINGAPORE</a>
+											</div>
+											<div class="desti-content">
+												<h3>
+													<a href="#">Marina Bay Sand City</a>
+												</h3>
+												<div class="rating-start" title="Rated 5 out of 4">
+													<span style="width: 60%"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn-wrap text-center">
+							<a href="#" class="button-primary">MORE DESTINATION</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Home packages section html start -->
+			<section class="package-section">
+				<div class="container">
+					<div class="section-heading text-center">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2">
+								<h5 class="dash-style">TRENDING IN THE COMMUNITY</h5>
+								<h2>POPULAR PACKAGES</h2>
+								<p>
+									Mollit voluptatem perspiciatis convallis elementum corporis
+									quo veritatis aliquid blandit, blandit torquent, odit
+									placeat. Adipiscing repudiandae eius cursus? Nostrum magnis
+									maxime curae placeat.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="package-inner">
+						<div class="row">
+							<div class="col-lg-4 col-md-6">
+								<div class="package-wrap">
+									<figure class="feature-image">
+										<a href="#">
+											<img src="static/images/sunset.jpg" alt="" />
+										</a>
+									</figure>
+									<div class="package-price">
+										<h6><span>$1,900 </span> / per person</h6>
+									</div>
+									<div class="package-content-wrap">
+										<div class="package-meta text-center">
+											<ul>
+												<li>
+													<i class="far fa-clock"></i>
+													7D/6N
+												</li>
+												<li>
+													<i class="fas fa-user-friends"></i>
+													People: 5
+												</li>
+												<li>
+													<i class="fas fa-map-marker-alt"></i>
+													Malaysia
+												</li>
+											</ul>
+										</div>
+										<div class="package-content">
+											<h3>
+												<a href="#">Sunset view of beautiful lakeside resident</a>
+											</h3>
+											<div class="review-area">
+												<span class="review-text">(25 reviews)</span>
+												<div class="rating-start" title="Rated 5 out of 5">
+													<span style="width: 60%"></span>
+												</div>
+											</div>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipiscing
+												elit luctus nec ullam. Ut elit tellus, luctus nec
+												ullam elit tellpus.
+											</p>
+											<div class="btn-wrap">
+												<a href="#" class="button-text width-6">Book Now<i
+														class="fas fa-arrow-right"></i></a>
+												<a href="#" class="button-text width-6">Wish List<i
+														class="far fa-heart"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<div class="package-wrap">
+									<figure class="feature-image">
+										<a href="#">
+											<img src="static/images/island.jpg" alt="" />
+										</a>
+									</figure>
+									<div class="package-price">
+										<h6><span>$1,230 </span> / per person</h6>
+									</div>
+									<div class="package-content-wrap">
+										<div class="package-meta text-center">
+											<ul>
+												<li>
+													<i class="far fa-clock"></i>
+													5D/4N
+												</li>
+												<li>
+													<i class="fas fa-user-friends"></i>
+													People: 8
+												</li>
+												<li>
+													<i class="fas fa-map-marker-alt"></i>
+													Canada
+												</li>
+											</ul>
+										</div>
+										<div class="package-content">
+											<h3>
+												<a href="#">Experience the natural beauty of island</a>
+											</h3>
+											<div class="review-area">
+												<span class="review-text">(17 reviews)</span>
+												<div class="rating-start" title="Rated 5 out of 5">
+													<span style="width: 100%"></span>
+												</div>
+											</div>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipiscing
+												elit luctus nec ullam. Ut elit tellus, luctus nec
+												ullam elit tellpus.
+											</p>
+											<div class="btn-wrap">
+												<a href="#" class="button-text width-6">Book Now<i
+														class="fas fa-arrow-right"></i></a>
+												<a href="#" class="button-text width-6">Wish List<i
+														class="far fa-heart"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<div class="package-wrap">
+									<figure class="feature-image">
+										<a href="#">
+											<img src="static/images/portugal.jpg" alt="" />
+										</a>
+									</figure>
+									<div class="package-price">
+										<h6><span>$2,000 </span> / per person</h6>
+									</div>
+									<div class="package-content-wrap">
+										<div class="package-meta text-center">
+											<ul>
+												<li>
+													<i class="far fa-clock"></i>
+													6D/5N
+												</li>
+												<li>
+													<i class="fas fa-user-friends"></i>
+													People: 6
+												</li>
+												<li>
+													<i class="fas fa-map-marker-alt"></i>
+													Portugal
+												</li>
+											</ul>
+										</div>
+										<div class="package-content">
+											<h3>
+												<a href="#">Vacation to the water city of Portugal</a>
+											</h3>
+											<div class="review-area">
+												<span class="review-text">(22 reviews)</span>
+												<div class="rating-start" title="Rated 5 out of 5">
+													<span style="width: 80%"></span>
+												</div>
+											</div>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipiscing
+												elit luctus nec ullam. Ut elit tellus, luctus nec
+												ullam elit tellpus.
+											</p>
+											<div class="btn-wrap">
+												<a href="#" class="button-text width-6">Book Now<i
+														class="fas fa-arrow-right"></i></a>
+												<a href="#" class="button-text width-6">Wish List<i
+														class="far fa-heart"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn-wrap text-center">
+							<a href="#" class="button-primary">VIEW ALL PACKAGES</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- packages html end -->
+
+			<!-- Home activity section html start -->
+			<section class="activity-section">
+				<div class="container">
+					<div class="section-heading text-center">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2">
+								<h5 class="dash-style">TRAVEL BY ACTIVITY</h5>
+								<h2>ADVENTURE & ACTIVITY</h2>
+								<p>
+									Mollit voluptatem perspiciatis convallis elementum corporis
+									quo veritatis aliquid blandit, blandit torquent, odit
+									placeat. Adipiscing repudiandae eius cursus? Nostrum magnis
+									maxime curae placeat.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="activity-inner row">
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon6.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Adventure</a>
+									</h4>
+									<p>15 Destination</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon10.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Trekking</a>
+									</h4>
+									<p>12 Destination</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon9.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Camp Fire</a>
+									</h4>
+									<p>7 Destination</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon8.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Off Road</a>
+									</h4>
+									<p>15 Destination</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon7.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Camping</a>
+									</h4>
+									<p>13 Destination</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="activity-item">
+								<div class="activity-icon">
+									<a href="#">
+										<img src="static/images/icon11.png" alt="" />
+									</a>
+								</div>
+								<div class="activity-content">
+									<h4>
+										<a href="#">Exploring</a>
+									</h4>
+									<p>25 Destination</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- activity html end -->
+			<!-- Home special section html start -->
+			<section class="special-section">
+				<div class="container">
+					<div class="section-heading text-center">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2">
+								<h5 class="dash-style">TRAVEL OFFER & DISCOUNT</h5>
+								<h2>SPECIAL TRAVEL OFFER</h2>
+								<p>
+									Mollit voluptatem perspiciatis convallis elementum corporis
+									quo veritatis aliquid blandit, blandit torquent, odit
+									placeat. Adipiscing repudiandae eius cursus? Nostrum magnis
+									maxime curae placeat.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="special-inner">
+						<div class="row">
+							<div class="col-md-6 col-lg-4">
+								<div class="special-item">
+									<figure class="special-img">
+										<img src="static/images/canada.jpg" alt="" />
+									</figure>
+									<div class="badge-dis">
+										<span>
+											<strong>20%</strong>
+											off
+										</span>
+									</div>
+									<div class="special-content">
+										<div class="meta-cat">
+											<a href="#">CANADA</a>
+										</div>
+										<h3>
+											<a href="#">Experience the natural beauty of glacier</a>
+										</h3>
+										<div class="package-price">
+											Price:
+											<del>$1500</del>
+											<ins>$1200</ins>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-4">
+								<div class="special-item">
+									<figure class="special-img">
+										<img src="static/images/newzealand.jpg" alt="" />
+									</figure>
+									<div class="badge-dis">
+										<span>
+											<strong>15%</strong>
+											off
+										</span>
+									</div>
+									<div class="special-content">
+										<div class="meta-cat">
+											<a href="#">NEW ZEALAND</a>
+										</div>
+										<h3>
+											<a href="#">Trekking to the mountain camp site</a>
+										</h3>
+										<div class="package-price">
+											Price:
+											<del>$1300</del>
+											<ins>$1105</ins>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-4">
+								<div class="special-item">
+									<figure class="special-img">
+										<img src="static/images/malaysia.jpg" alt="" />
+									</figure>
+									<div class="badge-dis">
+										<span>
+											<strong>15%</strong>
+											off
+										</span>
+									</div>
+									<div class="special-content">
+										<div class="meta-cat">
+											<a href="#">MALAYSIA</a>
+										</div>
+										<h3>
+											<a href="#">Sunset view of beautiful lakeside city</a>
+										</h3>
+										<div class="package-price">
+											Price:
+											<del>$1800</del>
+											<ins>$1476</ins>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- special html end -->
+			<!-- Home special section html start -->
+			<section class="best-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="section-heading">
+								<h5 class="dash-style">OUR TOUR GALLERY</h5>
+								<h2>BEST TRAVELER'S SHARED PHOTOS</h2>
+								<p>
+									Aperiam sociosqu urna praesent, tristique, corrupti
+									condimentum asperiores platea ipsum ad arcu. Nostrud. Esse?
+									Aut nostrum, ornare quas provident laoreet nesciunt odio
+									voluptates etiam, omnis.
+								</p>
+							</div>
+							<figure class="gallery-img">
+								<img src="static/images/img12.jpg" alt="" />
+							</figure>
+						</div>
+						<div class="col-lg-7">
+							<div class="row">
+								<div class="col-sm-6">
+									<figure class="gallery-img">
+										<img src="static/images/img13.jpg" alt="" />
+									</figure>
+								</div>
+								<div class="col-sm-6">
+									<figure class="gallery-img">
+										<img src="static/images/img14.jpg" alt="" />
+									</figure>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<figure class="gallery-img">
+										<img src="static/images/img15.jpg" alt="" />
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- best html end -->
+
+			<!-- Home blog section html start -->
+			<section class="blog-section">
+				<div class="container">
+					<div class="section-heading text-center">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2">
+								<h5 class="dash-style">FROM OUR BLOG</h5>
+								<h2>OUR RECENT POSTS</h2>
+								<p>
+									Mollit voluptatem perspiciatis convallis elementum corporis
+									quo veritatis aliquid blandit, blandit torquent, odit
+									placeat. Adipiscing repudiandae eius cursus? Nostrum magnis
+									maxime curae placeat.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-lg-4">
+							<article class="post">
+								<figure class="feature-image">
+									<a href="#">
+										<img src="static/images/img17.jpg" alt="" />
+									</a>
+								</figure>
+								<div class="entry-content">
+									<h3>
+										<a href="#">Life is a beautiful journey not a destination</a>
+									</h3>
+									<div class="entry-meta">
+										<span class="byline">
+											<a href="#">Demoteam</a>
+										</span>
+										<span class="posted-on">
+											<a href="#">August 17, 2021</a>
+										</span>
+										<span class="comments-link">
+											<a href="#">No Comments</a>
+										</span>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="col-md-6 col-lg-4">
+							<article class="post">
+								<figure class="feature-image">
+									<a href="#">
+										<img src="static/images/img18.jpg" alt="" />
+									</a>
+								</figure>
+								<div class="entry-content">
+									<h3>
+										<a href="#">Take only memories, leave only footprints</a>
+									</h3>
+									<div class="entry-meta">
+										<span class="byline">
+											<a href="#">Demoteam</a>
+										</span>
+										<span class="posted-on">
+											<a href="#">August 17, 2021</a>
+										</span>
+										<span class="comments-link">
+											<a href="#">No Comments</a>
+										</span>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="col-md-6 col-lg-4">
+							<article class="post">
+								<figure class="feature-image">
+									<a href="#">
+										<img src="static/images/img19.jpg" alt="" />
+									</a>
+								</figure>
+								<div class="entry-content">
+									<h3>
+										<a href="#">Journeys are best measured in new friends</a>
+									</h3>
+									<div class="entry-meta">
+										<span class="byline">
+											<a href="#">Demoteam</a>
+										</span>
+										<span class="posted-on">
+											<a href="#">August 17, 2021</a>
+										</span>
+										<span class="comments-link">
+											<a href="#">No Comments</a>
+										</span>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- blog html end -->
+		</main>
+		<!-- <footer id="colophon" class="site-footer footer-primary">
+			<div class="top-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6">
+							<aside class="widget widget_text">
+								<h3 class="widget-title">About Travel</h3>
+								<div class="textwidget widget-text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+									elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+									leo.
+								</div>
+								<div class="award-img">
+									<a href="#"><img src="static/images/logo6.png" alt="" /></a>
+									<a href="#"><img src="static/images/logo2.png" alt="" /></a>
+								</div>
+							</aside>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<aside class="widget widget_text">
+								<h3 class="widget-title">CONTACT INFORMATION</h3>
+								<div class="textwidget widget-text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									<ul>
+										<li>
+											<a href="#">
+												<i class="fas fa-phone-alt"></i>
+												+01 (977) 2599 12
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fas fa-envelope"></i>
+												company@domain.com
+											</a>
+										</li>
+										<li>
+											<i class="fas fa-map-marker-alt"></i>
+											3146 Koontz, California
+										</li>
+									</ul>
+								</div>
+							</aside>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<aside class="widget widget_recent_post">
+								<h3 class="widget-title">Latest Post</h3>
+								<ul>
+									<li>
+										<h5>
+											<a href="#">Life is a beautiful journey not a destination</a>
+										</h5>
+										<div class="entry-meta">
+											<span class="post-on">
+												<a href="#">August 17, 2021</a>
+											</span>
+											<span class="comments-link">
+												<a href="#">No Comments</a>
+											</span>
+										</div>
+									</li>
+									<li>
+										<h5>
+											<a href="#">Take only memories, leave only footprints</a>
+										</h5>
+										<div class="entry-meta">
+											<span class="post-on">
+												<a href="#">August 17, 2021</a>
+											</span>
+											<span class="comments-link">
+												<a href="#">No Comments</a>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</aside>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<aside class="widget widget_newslatter">
+								<h3 class="widget-title">SUBSCRIBE US</h3>
+								<div class="widget-text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								</div>
+								<form class="newslatter-form">
+									<input type="email" name="s" placeholder="Your Email.." />
+									<input type="submit" name="s" value="SUBSCRIBE NOW" />
+								</form>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="buttom-footer">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-5">
+							<div class="footer-menu">
+								<ul>
+									<li>
+										<a href="#">Privacy Policy</a>
+									</li>
+									<li>
+										<a href="#">Term & Condition</a>
+									</li>
+									<li>
+										<a href="#">FAQ</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2 text-center">
+							<div class="footer-logo">
+								<a href="#"><img src="static/images/travele-logo.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="copy-right text-right">
+								Copyright © 2021 Travele. All rights reserveds
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer> -->
+		<a id="backTotop" href="#" class="to-top-icon">
+			<i class="fas fa-chevron-up"></i>
+		</a>
+		<!-- custom search field html -->
+		<div class="header-search-form">
+			<div class="container">
+				<div class="header-search-container">
+					<form class="search-form" role="search" method="get">
+						<input type="text" name="s" placeholder="Enter your text..." />
+					</form>
+					<a href="#" class="search-close">
+						<i class="fas fa-times"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- header html end -->
+	</div>
+	<!-- JavaScript -->
+	<script src="static/js/jquery.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+	<script src="static/vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/vendors/jquery-ui/jquery-ui.min.js"></script>
+	<script src="static/vendors/countdown-date-loop-counter/loopcounter.js"></script>
+	<script src="static/js/jquery.counterup.js"></script>
+	<script src="static/vendors/modal-video/jquery-modal-video.min.js"></script>
+	<script src="static/vendors/masonry/masonry.pkgd.min.js"></script>
+	<script src="static/vendors/lightbox/dist/js/lightbox.min.js"></script>
+	<script src="static/vendors/slick/slick.min.js"></script>
+	<script src="static/js/jquery.slicknav.js"></script>
+	<script src="static/js/custom.min.js"></script>
+</body>
+
+</html>

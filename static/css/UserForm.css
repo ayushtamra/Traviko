@@ -1,0 +1,57 @@
+body {
+    /*background-color: red;*/
+    text-align: center;
+     background: url("https://wallpaperaccess.com/full/1431600.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-attachment:fixed;
+  display:grid;
+}
+
+.navbar {
+    /*background-color: #383838;*/
+    /*opacity: 0.6;*/
+    /*height: 500px;*/
+
+}
+.card{
+    background-color: ghostwhite;
+    opacity: 0.9;
+}
+.navbar-brand{
+    /*color: whitesmoke;*/
+    font-size: 40px;
+    font-family: Bree Serif;
+}
+
+a {
+    color: #f1f9f9;
+}
+
+a:hover {
+    color: #f0f0f0;
+  }
+
+.button-primary,.button-primary:focus, .button-primary:active {
+  background-color: #F56960;
+    color: #ffffff;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+}
+.button-primary:hover{
+     background-color: #2C75BA;
+  color: #ffffff;
+}
+.recstate{
+    color:#ffffff ;
+}
