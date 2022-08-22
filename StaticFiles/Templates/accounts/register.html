@@ -1,319 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <title>Django Social Network | Login</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Traviko - register as a user</title>
 
-    <script src="{% static 'js/libs/webfontloader.min.js' %}"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ['Roboto:300,400,500,700:latin']
-            }
-        });
-    </script>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
-    {% include 'includes/stylesheets.html' %}
-
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/batman.css' %}">
 </head>
-<body class="landing-page">
 
-<!-- ... end Preloader -->
-<div class="content-bg-wrap"></div>
+<body>
 
-<div class="header--standard header--standard-landing" id="header--standard">
-    <div class="container">
-        <div class="header--standard-wrap">
+    <div class="main">
 
-            <a href="{% url 'core:home' %}" class="logo">
-                <div class="img-wrap">
-                    <img src="https://ayushtamra.github.io/Traviko/assets/images/Traviko_logo.svg" alt="olympus">
-                    <img src="{% static 'img/logo-colored-small.webp' %}" alt="olympus" class="logo-colored">
-                </div>
+        <div class="container">
+            <div class="signup-content">
+                <form id="signup-form" class="signup-form" role="form" action="" method="post"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h2>Sign up</h2>
+                    <p class="desc">Enter Email Id and password</p>
 
-            </a>
-
-            <a href="#" class="open-responsive-menu js-open-responsive-menu">
-                <svg class="olymp-menu-icon">
-                    <use xlink:href="#olymp-menu-icon"></use>
-                </svg>
-            </a>
-
-        </div>
-    </div>
-</div>
-
-<!--
-<div class="theme-layout">
-    <div class="container-fluid pdng0">
-        <div class="row merged">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="land-featurearea">
-                    <div class="land-meta">
-                        <h1>Gatherly</h1>
-                        <p>
-                            Gatherly is free to use for as long as you want with two active projects.
-                        </p>
-                        <div class="friend-logo">
-                            <span><img src="images/wink.png" alt=""></span>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="username" id="username" placeholder="Username"
+                            required />
+                        {% if 'username' in form.errors %}
+                        {% for error in form.username.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
                         </div>
-                        <a href="#" title="" class="folow-me">Follow Us on</a>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="login-reg-bg">
-                    <div class="log-reg-area sign">
-                        <h2 class="log-title">Login</h2>
-                        <p>
-                            Don’t use Gatherly Yet? <a href="#" title="">Take the tour</a> or <a href="#" title="">Join
-                            now</a>
-                        </p>
-                        <form method="post" action="">
-{#                            {% csrf_token %}#}
-                            <div class="form-group">
-                                <input type="email" id="input" name="email" required="required"/>
-                                <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" required="required"/>
-                                <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" checked="checked"/><i class="check-box"></i>Always Remember
-                                    Me.
-                                </label>
-                            </div>
-                            <a href="#" title="" class="forgot-pwd">Forgot Password?</a>
-                            <div class="submit-btns">
-                                <button class="mtr-btn signin" type="submit"><span>Login</span></button>
-                                <a class="mtr-btn signup" href="{% url 'accounts:register' %}"><span>Register</span>
-                                </a>
-                            </div>
-                        </form>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" id="email" placeholder="Email" required />
+                        {% if 'email' in form.errors %}
+                        {% for error in form.email.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password1" id="password1" placeholder="Password"
+                            required />
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        {% if 'password1' in form.errors %}
+                        {% for error in form.password1.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password2" id="password2"
+                            placeholder="Confirm Password" required />
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        {% if 'password2' in form.errors %}
+                        {% for error in form.password2.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Continue" />
+                        <a href="{% url 'accounts:login' %}" class="submit-link submit">Sign in</a>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
-</div>
--->
 
-<!-- ... end Header Standard Landing  -->
-<div class="header-spacer--standard"></div>
-
-<div class="container">
-    <div class="row display-flex">
-        <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <div class="landing-content">
-                <h1>Welcome to the Biggest Social Network in the World</h1>
-                <p>Are you glamorous, fun, naughty and freaky? Register today and experience another level of
-                    excitement.</p>
-                <a href="{% url 'accounts:register' %}" class="btn btn-md btn-border c-white">Register Now!</a>
-            </div>
-        </div>
-
-        <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-
-            {% if form.errors %}
-                {% for error in form.non_field_errors %}
-                    <div class="alert alert-danger alert-dismissable">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>{{ error|escape }}</strong>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% if messages %}
-
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                {% endfor %}
-
-            {% endif %}
-
-            <!-- Login-Registration Form  -->
-
-            <div class="registration-login-form">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">
-                            <svg class="olymp-register-icon">
-                                <use xlink:href="#olymp-register-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#home" role="tab">
-                            <svg class="olymp-login-icon">
-                                <use xlink:href="#olymp-login-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
-                        <div class="title h6">Login to your account</div>
-                        <form class="content" method="post" action="{% url 'accounts:login' %}">
-                            {% csrf_token %}
-
-                            {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}"
-                                       value="{{ redirect_field_value }}"/>
-                            {% endif %}
-                            <div class="row">
-                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Email</label>
-                                        <input class="form-control" value="{{ form.login.value|default_if_none:"" }}"
-                                               name="email" placeholder="" type="email">
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Password</label>
-                                        <input class="form-control" name="password" placeholder="" type="password">
-                                    </div>
-
-                                    <div class="remember">
-
-                                        <div class="checkbox">
-                                            <label>
-                                                <input name="remember_me" type="checkbox">
-                                                Remember Me
-                                            </label>
-                                        </div>
-                                        <a href="" class="forgot">Forgot my
-                                            Password</a>
-                                    </div>
-
-                                    <input type="submit" class="btn btn-lg btn-primary full-width" value="Login">
-
-                                    <p>Don’t you have an account? <a href="{% url 'accounts:register' %}">Register
-                                        Now!</a>
-                                        it’s really simple, and you can start enjoying all the benefits!</p>
-                                    <p>For any issue <a href="">contact us</a></p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
-                        <div class="title h6">Register</div>
-                        <form class="content" method="post" action="{% url 'accounts:register' %}">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Username</label>
-                                        <input class="form-control" value="{{ form.username.value|default_if_none:"" }}"
-                                               name="username" placeholder="" type="text">
-                                        {% if 'username' in form.errors %}
-                                            {% for error in form.username.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Email</label>
-                                        <input class="form-control" value="{{ form.email.value|default_if_none:"" }}"
-                                               name="email" placeholder="" type="email">
-                                        {% if 'email' in form.errors %}
-                                            {% for error in form.email.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Gender</label>
-                                        <select class="selectpicker form-control" name="gender">
-                                            <option value="Male" {% if form.gender.value == 'Male' %}
-                                                    selected {% endif %}>
-                                                Male
-                                            </option>
-                                            <option value="Female" {% if form.gender.value == 'Female' %}
-                                                    selected {% endif %}>Female
-                                            </option>
-                                        </select>
-                                        {% if 'age' in form.errors %}
-                                            {% for error in form.age.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-
-                                    <!-- Residence city -->
-
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">City</label>
-                                        <input class="form-control" value="{{ form.city.value|default_if_none:"" }}"
-                                               name="city" placeholder="" type="text">
-                                    </div>
-
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Password</label>
-                                        <input class="form-control" name="password1" placeholder="" type="password">
-                                        {% if 'password1' in form.errors %}
-                                            {% for error in form.password1.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Confirm Password</label>
-                                        <input class="form-control" name="password2" placeholder="" type="password">
-                                        {% if 'password2' in form.errors %}
-                                            {% for error in form.password2.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-
-                                    <input type="submit" class="btn btn-purple btn-lg full-width"
-                                           value="Complete Registration!">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- ... end Login-Registration Form  -->
-        </div>
-    </div>
-</div>
-
-{% include 'includes/scripts.html' %}
-
+    <script src="{% static ' vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static ' js/batman.js' %}"></script>
 </body>
+
 </html>

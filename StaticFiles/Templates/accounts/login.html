@@ -1,309 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
 {% load static %}
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <title>Django Social Network | Login</title>
-
-    <script src="{% static 'ExStatic/js/libs/webfontloader.min.js' %}"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ['Roboto:300,400,500,700:latin']
-            }
-        });
-    </script>
-
-    {% include 'includes/stylesheets.html' %}
-
+    <title>Traviko - Sign in</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static "images/icons/favicon.ico" %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <!--===============================================================================================-->
 </head>
-<body class="landing-page">
+<body>
 
-<!-- ... end Preloader -->
-<div class="content-bg-wrap"></div>
-
-<div class="header--standard header--standard-landing" id="header--standard">
-    <div class="container">
-        <div class="header--standard-wrap">
-
-            <a href="{% url 'core:home' %}" class="logo">
-                <div class="img-wrap">
-                    <img src="https://ayushtamra.github.io/Traviko/assets/images/Traviko_logo.svg" alt="olympus">
-                    <img src="{% static 'ExStatic/img/logo-colored-small.webp' %}" alt="olympus" class="logo-colored">
-                </div>
-            </a>
-
-            <a href="#" class="open-responsive-menu js-open-responsive-menu">
-                <svg class="olymp-menu-icon">
-                    <use xlink:href="#olymp-menu-icon"></use>
-                </svg>
-            </a>
-
-        </div>
-    </div>
-</div>
-
-<!--
-<div class="theme-layout">
-    <div class="container-fluid pdng0">
-        <div class="row merged">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="land-featurearea">
-                    <div class="land-meta">
-                        <h1>Gatherly</h1>
-                        <p>
-                            Gatherly is free to use for as long as you want with two active projects.
-                        </p>
-                        <div class="friend-logo">
-                            <span><img src="images/wink.png" alt=""></span>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" role="form" action="#" method="post"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                <span class="login100-form-title">
+						Sign In
+					</span>
+                <div class="wrap-input100 m-b-16" data-validate="Please enter email">
+                    <input class="input100" type="email" name="email" placeholder="Email Id">
+                    <span class="focus-input100"></span>
+                {% if 'email' in form.errors %}
+                    {% for error in form.email.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert"
+                               aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
                         </div>
-                        <a href="#" title="" class="folow-me">Follow Us on</a>
-                    </div>
+                    {% endfor %}
+                {% endif %}
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="login-reg-bg">
-                    <div class="log-reg-area sign">
-                        <h2 class="log-title">Login</h2>
-                        <p>
-                            Don’t use Gatherly Yet? <a href="#" title="">Take the tour</a> or <a href="#" title="">Join
-                            now</a>
-                        </p>
-                        <form method="post" action="">
-{#                            {% csrf_token %}#}
-                            <div class="form-group">
-                                <input type="email" id="input" name="email" required="required"/>
-                                <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" required="required"/>
-                                <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" checked="checked"/><i class="check-box"></i>Always Remember
-                                    Me.
-                                </label>
-                            </div>
-                            <a href="#" title="" class="forgot-pwd">Forgot Password?</a>
-                            <div class="submit-btns">
-                                <button class="mtr-btn signin" type="submit"><span>Login</span></button>
-                                <a class="mtr-btn signup" href="{% url 'accounts:register' %}"><span>Register</span>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter password">
+                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                {% if 'password' in form.errors %}
+                    {% for error in form.password.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert"
+                               aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
+                <br>
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">Sign In</button>
 
-<!-- ... end Header Standard Landing  -->
-<div class="header-spacer--standard"></div>
-
-<div class="container">
-    <div class="row display-flex">
-        <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <div class="landing-content">
-                <h1>Welcome to the Biggest Social Network in the World</h1>
-                <p>Are you glamorous, fun, naughty and freaky? Register today and experience another level of
-                    excitement.</p>
-                <a href="{% url 'accounts:register' %}" class="btn btn-md btn-border c-white">Register Now!</a>
-            </div>
-        </div>
-
-        <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-
-            {% if form.errors %}
-                {% for error in form.non_field_errors %}
-                    <div class="alert alert-danger alert-dismissable">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>{{ error|escape }}</strong>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% if messages %}
-
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                {% endfor %}
-
-            {% endif %}
-
-            <!-- Login-Registration Form  -->
-
-            <div class="registration-login-form">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">
-                            <svg class="olymp-register-icon">
-                                <use xlink:href="#olymp-register-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#home" role="tab">
-                            <svg class="olymp-login-icon">
-                                <use xlink:href="#olymp-login-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane active" id="profile" role="tabpanel" data-mh="log-tab">
-                        <div class="title h6">Login to your account</div>
-                        <form class="content" method="post" action="{% url 'accounts:login' %}">
-                            {% csrf_token %}
-
-                            {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}"
-                                       value="{{ redirect_field_value }}"/>
-                            {% endif %}
-                            <div class="row">
-                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Email</label>
-                                        <input class="form-control" value="{{ form.login.value|default_if_none:"" }}"
-                                               name="email" placeholder="" type="email">
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Password</label>
-                                        <input class="form-control" name="password" placeholder="" type="password">
-                                    </div>
-
-                                    <div class="remember">
-
-                                        <div class="checkbox">
-                                            <label>
-                                                <input name="remember_me" type="checkbox">
-                                                Remember Me
-                                            </label>
-                                        </div>
-                                        <a href="" class="forgot">Forgot my
-                                            Password</a>
-                                    </div>
-
-                                    <input type="submit" class="btn btn-lg btn-primary full-width" value="Login">
-
-                                    <p>Don’t you have an account? <a href="{% url 'accounts:register' %}">Register
-                                        Now!</a>
-                                        it’s really simple, and you can start enjoying all the benefits!</p>
-                                    <p>For any issue <a href="">contact us</a></p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane" id="home" role="tabpanel" data-mh="log-tab">
-                        <div class="title h6">Register to olympus</div>
-                        <form class="content" method="post" action="{% url 'accounts:register' %}">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Username</label>
-                                        <input class="form-control" value="{{ form.username.value|default_if_none:"" }}"
-                                               name="username" placeholder="" type="text">
-                                        {% if 'username' in form.errors %}
-                                            {% for error in form.username.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Your Email</label>
-                                        <input class="form-control" value="{{ form.email.value|default_if_none:"" }}"
-                                               name="email" placeholder="" type="email">
-                                        {% if 'email' in form.errors %}
-                                            {% for error in form.email.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Gender</label>
-                                        <select class="selectpicker form-control" name="gender">
-                                            <option value="Male" {% if form.gender.value == 'Male' %}
-                                                    selected {% endif %}>
-                                                Male
-                                            </option>
-                                            <option value="Female" {% if form.gender.value == 'Female' %}
-                                                    selected {% endif %}>Female
-                                            </option>
-                                        </select>
-                                        {% if 'age' in form.errors %}
-                                            {% for error in form.age.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Password</label>
-                                        <input class="form-control" name="password1" placeholder="" type="password">
-                                        {% if 'password1' in form.errors %}
-                                            {% for error in form.password1.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Confirm Password</label>
-                                        <input class="form-control" name="password2" placeholder="" type="password">
-                                        {% if 'password2' in form.errors %}
-                                            {% for error in form.password2.errors %}
-                                                <div class="alert alert-danger alert-dismissable">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <strong>{{ error|escape }}</strong>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-
-                                    <input type="submit" class="btn btn-purple btn-lg full-width"
-                                           value="Complete Registration!">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
-            </div>
-            <!-- ... end Login-Registration Form  -->
+
+                <div class="flex-col-c p-t-170 p-b-40">
+						<span class="txt1 p-b-9">
+							Don't have an account?
+						</span>
+                    <a href="{%  url 'accounts:register' %}" class="txt3">
+                        Sign up now
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-{% include 'includes/scripts.html' %}
+
+<!--===============================================================================================-->
+<script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/bootstrap/js/popper.js" %}"></script>
+<script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/select2/select2.min.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+<script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+<!--===============================================================================================-->
+<script src="{% static "js/login.js" %}"></script>
 
 </body>
 </html>
+
+
+{#{% extends 'webapp/base.html'%}#}
+{#{% block title %}Log In{% endblock %}#}
+{##}
+{#{% block body %}#}
+{#<div class="container col-md-8">#}
+{##}
+{#    <div class="row">#}
+{#        <div class="col-sm-12 col-md-6 col-md-offset-3">#}
+{#            <div class="panel panel-default">#}
+{#                <div class="panel-body">#}
+{#                    <br>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                    <h3 class="col-sm-4 col-md-offset-4">Log In</h3>#}
+{#                    {% if error_message %}#}
+{#                        <p><strong>{{ error_message }}</strong></p>#}
+{#                    {% endif %}#}
+{#                    <br>#}
+{#                    <form class="form-horizontal" role="form" action="#" method="post" enctype="multipart/form-data">#}
+{#                        {% csrf_token %}#}
+{#                        <div class="form-group">#}
+{#                            <label class="control-label col-sm-2" for="id_username">#}
+{#                                Username:#}
+{#                            </label>#}
+{#                            <div class="col-sm-6">#}
+{#                                <input id="id_username" maxlength="30" name="username" type="text">#}
+{#                            </div> #}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label class="control-label col-sm-2" for="id_password">#}
+{#                                Password:#}
+{#                            </label>#}
+{#                            <div class="col-sm-7">#}
+{#                                <input id="id_password" maxlength="30" name="password" type="password">#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <div class="col-sm-offset-2 col-sm-10">#}
+{#                                <button type="submit" class="btn btn-success">Submit</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#                <div class="panel-footer">#}
+{#                    Don't have an account? <a href="{% url 'register' %}">Click here</a> to register.#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#</div>#}
+{#<br>#}
+{#<br>#}
+{#{% endblock %}#}
+{##}

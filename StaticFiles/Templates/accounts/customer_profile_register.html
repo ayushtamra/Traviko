@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FoodUs - Customer Profile</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static "fonts/material-icon/css/material-design-iconic-font.min.css" %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static "css/batman.css" %}">
+</head>
+<body>
+
+<div class="main">
+
+    <div class="container">
+        <div class="signup-content">
+            <form id="form" class="signup-form" role="form" action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>Customer Profile</h2>
+                <p class="desc">Enter Personal Details</p>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="f_name" id="f_name" placeholder="First Name" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="l_name" id="l_name" placeholder="Last Name" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="phone" id="phone" placeholder="Contact Number"
+                           required/>
+                </div>
+                <div class="select">
+                    <select name="location" id="location" required>
+                        <option value="">Select Location</option>
+                        {% for x in locations %}
+                            <option value="{{ x.0 }}">{{ x.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="addressline1" id="addressline1"
+                           placeholder="Address Line 1" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" name="addressline2" id="addressline2"
+                           placeholder="Address Line 2" required/>
+                </div>
+                    <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+<script src="{% static "js/batman.js" %}"></script>
+</body>
+</html>
