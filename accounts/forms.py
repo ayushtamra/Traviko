@@ -19,6 +19,9 @@ class UserRegistrationForm(UserCreationForm):
         fields = ("username",
                   "email",
                   "gender",
+                  "education",
+                  "residence",
+                  "age",
                   "password1",
                   "password2")
 
