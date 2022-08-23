@@ -24,7 +24,7 @@ class User(AbstractUser):
     gender = models.CharField(max_length=20)
     education = models.CharField(max_length=20)
     residence = models.CharField(max_length=20)
-    age = models.IntegerField
+    age = models.IntegerField()
 
     citySearched = models.CharField(max_length=20)
 
